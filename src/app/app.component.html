@@ -2,6 +2,15 @@
   <div class="spinner"></div>
 </div>
 
+<a
+  href="https://github.com/namanmehta1208/weather-wise"
+  target="_blank"
+  class="github-link"
+  aria-label="GitHub repository"
+>
+  <i class="fab fa-github"></i>
+</a>
+
 <link
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
@@ -10,7 +19,11 @@
 <div class="search-container">
   <div class="input-wrapper">
     <input [formControl]="searchControl" placeholder="Search for a location" />
-    <i class="fas fa-location-arrow" (click)="getCurrentLocationWeather()"></i>
+    <i
+      class="fas fa-location-arrow"
+      (click)="getCurrentLocationWeather()"
+      title="Go to current location"
+    ></i>
   </div>
   <div class="suggestions" *ngIf="suggestions.length > 0">
     <div
