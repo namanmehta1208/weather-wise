@@ -1,0 +1,14 @@
+<div class="info-box">
+  <div class="icon-container">
+    <img [src]="icon" alt="" class="small-icon" />
+  </div>
+  <div class="text-container">
+    <div class="label">{{ label }}</div>
+    <div class="value-container">
+      <span class="value">{{ value }}</span>
+    </div>
+    <div class="wind-info" *ngIf="windInfo">
+      {{ windInfo }}
+    </div>
+  </div>
+</div>

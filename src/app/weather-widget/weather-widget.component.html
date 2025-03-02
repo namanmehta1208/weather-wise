@@ -1,0 +1,158 @@
+<div
+  class="background"
+  [style.backgroundImage]="weatherData?.weather[0]?.backgroundImage"
+></div>
+
+<div
+  class="widget-container"
+  [ngClass]="weatherData?.weather[0]?.textColor + '-text'"
+  *ngIf="weatherData"
+>
+  <!-- Main Box -->
+  <div class="main-box">
+    <div class="location">
+      {{ weatherData.name }}, {{ weatherData.sys.country }}
+    </div>
+    <div class="weather-icon">
+      <img
+        [src]="weatherData?.weather[0]?.iconPath"
+        alt="Weather icon"
+        class="icon-image"
+      />
+    </div>
+    <div class="temperature">
+      {{ weatherData.main.temp | temperature : unit }}
+    </div>
+    <div class="description">
+      {{ weatherData.weather[0].description }}
+    </div>
+
+    <div class="temperature-toggle">
+      <span [class.active]="unit === 'C'" (click)="setUnit('C')">°C</span>
+      <span [class.active]="unit === 'F'" (click)="setUnit('F')">°F</span>
+    </div>
+
+    <div class="data-row">
+      <div class="info-box">
+        <div class="icon-container">
+          <span data-icon="ph:t-shirt" class="iconify small-icon"></span>
+        </div>
+        <div class="text-container">
+          <div class="label">Feels Like</div>
+          <div class="value">
+            {{ weatherData.main.feels_like | temperature : unit }}
+          </div>
+        </div>
+      </div>
+      <div class="info-box">
+        <span
+          data-icon="material-symbols:humidity-percentage-outline"
+          class="iconify small-icon"
+        ></span>
+        <div class="text-container">
+          <div class="label">Humidity</div>
+          <div class="value">{{ weatherData.main.humidity }}%</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="data-row">
+      <div class="info-box">
+        <div class="icon-container">
+          <span data-icon="ph:face-mask" class="iconify small-icon"></span>
+        </div>
+        <div class="text-container">
+          <div class="label">AQI</div>
+          <div class="value">{{ weatherData.weather[0].aqi }}</div>
+        </div>
+      </div>
+      <div class="info-box">
+        <div class="icon-container">
+          <span
+            data-icon="material-symbols:visibility-outline"
+            class="iconify small-icon"
+          ></span>
+        </div>
+        <div class="text-container">
+          <div class="label">Visibility</div>
+          <div class="value">
+            {{ weatherData.weather[0].visibility.toFixed(1) }} km
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- View Selector -->
+  <div class="view-selector">
+    <h3
+      class="section-title"
+      [class.active]="view === 'today'"
+      (click)="setView('today')"
+    >
+      Today's Details
+    </h3>
+    <h3
+      class="section-title"
+      [class.active]="view === 'forecast'"
+      (click)="setView('forecast')"
+    >
+      6 Days Forecast
+    </h3>
+  </div>
+
+  <!-- Today's Details Section -->
+  <div *ngIf="view === 'today'" class="info-grid">
+    <app-details-block
+      label="Sunrise"
+      [value]="(weatherData.sys.sunrise * 1000 | date : 'shortTime') ?? ''"
+      icon="assets/icons/sunrise.svg"
+    ></app-details-block>
+    <app-details-block
+      label="Sunset"
+      [value]="(weatherData.sys.sunset * 1000 | date : 'shortTime') ?? ''"
+      icon="assets/icons/sunset.svg"
+    ></app-details-block>
+    <app-details-block
+      label="High"
+      [value]="weatherData.main.temp_max | temperature : unit"
+      icon="assets/icons/thermometer-warmer.svg"
+    ></app-details-block>
+    <app-details-block
+      label="Low"
+      [value]="weatherData.main.temp_min | temperature : unit"
+      icon="assets/icons/thermometer-colder.svg"
+    ></app-details-block>
+    <app-details-block
+      label="Precipitation"
+      [value]="weatherData.rain.currentProbability + '%'"
+      icon="assets/icons/raindrop.svg"
+    ></app-details-block>
+    <app-details-block
+      label="Total Precip"
+      [value]="weatherData.rain.current + 'mm'"
+      icon="assets/icons/raindrops.svg"
+    ></app-details-block>
+    <app-details-block
+      label="UV Index"
+      [value]="weatherData.uvIndex || 0"
+      icon="assets/icons/uv-index.svg"
+    ></app-details-block>
+    <app-details-block
+      label="Wind Speed"
+      [value]="weatherData.wind.speed + ' km/h'"
+      [windInfo]="weatherData.wind.info"
+      icon="assets/icons/wind.svg"
+    ></app-details-block>
+  </div>
+
+  <!-- Forecast Section -->
+  <div *ngIf="view === 'forecast'" class="forecast-grid">
+    <app-forecast-block
+      *ngFor="let day of weatherData.forecast"
+      [forecastData]="day"
+      [tempMax]="day.tempMax | temperature : unit"
+      [tempMin]="day.tempMin | temperature : unit"
+    ></app-forecast-block>
+  </div>
+</div>

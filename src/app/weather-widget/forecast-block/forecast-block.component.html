@@ -1,0 +1,10 @@
+<div class="forecast-box">
+  <div class="date">{{ forecastData.date | date : "mediumDate" }}</div>
+  <div class="weather-icon">
+    <img [src]="forecastData.iconPath" alt="Weather icon" />
+  </div>
+  <div class="temperatures">
+    <span class="temp-max">{{ tempMax }}</span>
+    <span class="temp-min">{{ tempMin }}</span>
+  </div>
+</div>

@@ -1,0 +1,56 @@
+$border-radius: 20px;
+
+.forecast-box {
+  backdrop-filter: blur(10px);
+  background: var(--frosted-bg);
+  border-radius: $border-radius;
+  padding: 1rem;
+  text-align: center;
+  min-height: 200px; // Taller than DetailsBlockComponent (120px)
+  width: 100%; // Will be controlled by grid
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+}
+
+.date {
+  font-size: 1rem;
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+}
+
+.weather-icon {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 0.5rem;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+.temperatures {
+  display: flex;
+  justify-content: space-around;
+  width: 90%;
+}
+
+.temp-max {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--text-color); // Darker/main color
+}
+
+.temp-min {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--label-color); // Lighter color for min temp
+}

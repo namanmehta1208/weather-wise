@@ -1,0 +1,30 @@
+<div class="loading-spinner" *ngIf="isLoading">
+  <div class="spinner"></div>
+</div>
+
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+/>
+
+<div class="search-container">
+  <div class="input-wrapper">
+    <input [formControl]="searchControl" placeholder="Search for a location" />
+    <i class="fas fa-location-arrow" (click)="getCurrentLocationWeather()"></i>
+  </div>
+  <div class="suggestions" *ngIf="suggestions.length > 0">
+    <div
+      *ngFor="let suggestion of suggestions"
+      (click)="selectLocation(suggestion)"
+    >
+      {{ suggestion.display_name }}
+    </div>
+  </div>
+</div>
+
+<app-weather-widget
+  *ngIf="widgetData"
+  [weatherData]="widgetData"
+></app-weather-widget>
+
+<!-- <pre *ngIf="weatherData">{{ weatherData | json }}</pre> -->

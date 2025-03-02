@@ -1,0 +1,53 @@
+$border-radius: 20px;
+
+.info-box {
+  backdrop-filter: blur(10px);
+  padding: 1rem;
+  background: var(--frosted-bg); /* Use parent’s frosted background */
+  border-radius: $border-radius;
+  padding: 1.5rem;
+  text-align: center;
+  min-height: 120px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  .label {
+    position: absolute;
+    top: 0.5rem;
+    left: 1rem;
+    font-size: 0.9rem;
+    text-align: left;
+    margin-bottom: 0rem;
+    opacity: 0.9;
+    color: var(--label-color);
+  }
+
+  .value {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--value-color);
+  }
+}
+
+.icon-container {
+  margin-right: 8px;
+}
+
+.small-icon {
+  width: 80px;
+  height: 80px;
+}
+
+.wind-info {
+  margin-top: 5px;
+  font-size: 0.8rem;
+  color: var(--label-color);
+  font-style: italic;
+}
