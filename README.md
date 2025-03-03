@@ -1,6 +1,6 @@
 # Weather Wise - Angular Weather Application
 
-Welcome to **Weather Wise**, a modern and responsive weather application built with **Angular**. WeatherWise delivers real-time weather updates and forecasts for any location across the globe. Powered by the **Open-Meteo API** for weather data and **Nominatim** for location search, this app combines functionality with a sleek design, featuring dynamic icons from **Iconify** and **weather-icons**.
+Welcome to **Weather Wise**, a modern and responsive weather application built with **Angular**. Weather Wise delivers real-time weather updates and forecasts for any location globally. Powered by the **Open-Meteo API** for weather data and **Nominatim** for location search, this app combines functionality with a sleek design, featuring dynamic icons from **Iconify** and **weather-icons**.
 
 **Link** - https://weather-wise-beige.vercel.app/
 
@@ -11,7 +11,7 @@ Welcome to **Weather Wise**, a modern and responsive weather application built w
 - **6-Day Forecast**: With a detailed six-day weather outlook.
 - **Location Search**: Easily find weather data for any city with autocomplete suggestions.
 - **Current Location Detection**: Instantly view the weather for your current location.
-- **Wind Details**: Get wind speed, direction.
+- **Wind Details**: Get wind speed and direction.
 - **Responsive Layout**: Enjoy a seamless experience on desktop, tablet, or mobile.
 - **Dynamic Weather Icons**: Visualize conditions with stunning icons tailored to the weather.
 - **Dynamic Backgrounds**: Enjoy a visually immersive experience with backgrounds that change dynamically based on the current weather conditions and whether it’s day or night.
@@ -40,7 +40,7 @@ Here’s a peek at Weather Wise in action!
 ---
 
 ## Getting Started
-Want to run WeatherWise locally? Follow these simple steps:
+Want to run Weather Wise locally? Follow these simple steps:
 
 1. **Clone the Repository**:
    ```bash
