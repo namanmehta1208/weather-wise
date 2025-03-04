@@ -291,7 +291,7 @@ $border-radius: 20px;
   }
 }
 
-/* Small screens (up to 600px) - unchanged from your current CSS */
+/* Small screens (up to 600px) */
 @media (max-width: 600px) {
   .info-grid {
     grid-template-columns: 1fr; /* Single column for small screens */
