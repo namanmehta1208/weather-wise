@@ -6,8 +6,8 @@ $border-radius: 20px;
   border-radius: $border-radius;
   padding: 1rem;
   text-align: center;
-  min-height: 200px; // Taller than DetailsBlockComponent (120px)
-  width: 100%; // Will be controlled by grid
+  min-height: 200px; 
+  width: 100%; 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -46,11 +46,11 @@ $border-radius: 20px;
 .temp-max {
   font-size: 1.2rem;
   font-weight: bold;
-  color: var(--text-color); // Darker/main color
+  color: var(--text-color); 
 }
 
 .temp-min {
   font-size: 1.2rem;
   font-weight: bold;
-  color: var(--label-color); // Lighter color for min temp
+  color: var(--label-color); 
 }
