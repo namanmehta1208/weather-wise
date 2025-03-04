@@ -12,5 +12,5 @@ export class DetailsBlockComponent {
   @Input() label: string = '';
   @Input() value: string | number = '';
   @Input() icon: string = '';
-  @Input() windInfo?: string = '';
+  @Input() moreInfo?: string = '';
 }

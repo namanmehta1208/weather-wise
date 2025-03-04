@@ -116,11 +116,19 @@
     <app-details-block
       label="High"
       [value]="weatherData.main.temp_max | temperature : unit"
+      [moreInfo]="
+        'Feels Like ' +
+        (weatherData.main.tempFeelsLike_max | temperature : unit)
+      "
       icon="assets/icons/thermometer-warmer.svg"
     ></app-details-block>
     <app-details-block
       label="Low"
       [value]="weatherData.main.temp_min | temperature : unit"
+      [moreInfo]="
+        'Feels Like ' +
+        (weatherData.main.tempFeelsLike_min | temperature : unit)
+      "
       icon="assets/icons/thermometer-colder.svg"
     ></app-details-block>
     <app-details-block
@@ -141,7 +149,7 @@
     <app-details-block
       label="Wind Speed"
       [value]="weatherData.wind.speed + ' km/h'"
-      [windInfo]="weatherData.wind.info"
+      [moreInfo]="weatherData.wind.info"
       icon="assets/icons/wind.svg"
     ></app-details-block>
   </div>

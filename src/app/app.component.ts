@@ -175,6 +175,8 @@ export class AppComponent implements OnInit {
         humidity: weatherData.current.relativeHumidity2m,
         temp_max: weatherData.daily.temperature2mMax[0],
         temp_min: weatherData.daily.temperature2mMin[0],
+        tempFeelsLike_max: weatherData.daily.apparentTemperatureMax[0],
+        tempFeelsLike_min: weatherData.daily.apparentTemperatureMin[0],
       },
       wind: {
         speed: windSpeedKmH.toFixed(1),
