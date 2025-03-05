@@ -197,7 +197,7 @@ export class AppComponent implements OnInit {
         },
       ],
       rain: {
-        current: weatherData.current.precipitation,
+        current: weatherData.daily.precipitationSum[0],
         currentProbability: weatherData.daily.precipitationProbabilityMax[0],
       },
       uvIndex: weatherData.daily.uvIndexMax[0],
