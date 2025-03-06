@@ -1,5 +1,6 @@
 export interface WeatherResponse {
   current: {
+    cloud_cover: number;
     time: string;
     temperature_2m: number;
     relative_humidity_2m: number;

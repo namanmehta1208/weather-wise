@@ -123,6 +123,7 @@ export class WeatherService {
         'weather_code',
         'wind_speed_10m',
         'wind_direction_10m',
+        'cloud_cover',
       ].join(','),
       daily: [
         'weather_code',
@@ -209,6 +210,7 @@ export class WeatherService {
             windDirection10m: current.wind_direction_10m,
             visibility: currentVisibility,
             aqi: aqi,
+            cloudCover: current.cloud_cover,
           },
           daily: {
             time: daily.time.map((t: string) => new Date(t)),
@@ -289,7 +291,8 @@ export class WeatherService {
 
   getWeatherDetailsAndIcon(
     code: number,
-    isDay: boolean
+    isDay: boolean,
+    cloudCover: number
   ): {
     description: string;
     iconPath: string;
@@ -424,8 +427,12 @@ export class WeatherService {
 
     textColor = backgroundTextColors[backgroundName][timeOfDay];
 
+    const description = `${
+      descriptions[code] || 'Unknown'
+    }, with ${cloudCover}% cloud cover`;
+
     return {
-      description: descriptions[code] || 'Unknown',
+      description,
       iconPath: `${baseIconPath}/${iconCode}.svg`,
       backgroundImage: `url('${baseBackgroundPath}/${backgroundName}.webp')`,
       textColor: textColor,

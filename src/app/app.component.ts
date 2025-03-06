@@ -123,7 +123,8 @@ export class AppComponent implements OnInit {
     const isDay = weatherData.current.isDay === 1;
     const weatherDetails = this.weatherService.getWeatherDetailsAndIcon(
       weatherData.current.weatherCode,
-      isDay
+      isDay,
+      weatherData.current.cloudCover
     );
 
     // will extract the forecast data for next six days
@@ -146,7 +147,8 @@ export class AppComponent implements OnInit {
     const forecast = forecastDates.map((date: string, index: number) => {
       const forecastDetails = this.weatherService.getWeatherDetailsAndIcon(
         forecastWeatherCodes[index],
-        true
+        true,
+        weatherData.current.cloudCover
       );
       return {
         date: new Date(date).toISOString().split('T')[0],
@@ -177,6 +179,7 @@ export class AppComponent implements OnInit {
         temp_min: weatherData.daily.temperature2mMin[0],
         tempFeelsLike_max: weatherData.daily.apparentTemperatureMax[0],
         tempFeelsLike_min: weatherData.daily.apparentTemperatureMin[0],
+        cloudCover: weatherData.current.cloudCover,
       },
       wind: {
         speed: windSpeedKmH.toFixed(1),
